@@ -103,3 +103,16 @@ CREATE TABLE IF NOT EXISTS `list_activity` (
 
 ALTER TABLE `list_admin`
 	ADD COLUMN `admin_photo` TEXT NULL DEFAULT NULL AFTER `admin_tierId`;
+
+-- Added date 6 April 2021
+CREATE TABLE IF NOT EXISTS `list_bank` (
+  `bank_id` int(11) NOT NULL AUTO_INCREMENT,
+  `bank_name` varchar(50) NOT NULL,
+  `branch_name` varchar(50) NOT NULL,
+  `bank_code` varchar(20) NOT NULL,
+  `account_number` varchar(50) NOT NULL,
+  `holder_name` varchar(50) NOT NULL,
+  `bank_photo` text DEFAULT NULL,
+  `is_active` tinyint(4) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`bank_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

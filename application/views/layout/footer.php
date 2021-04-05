@@ -30,7 +30,7 @@
   	  </div>
   	</div>
 
-  	<?= $this->session->flashdata("pesan"); ?>
+  	<?= $this->session->flashdata("message"); ?>
   	<script src="<?= base_url(); ?>assets/vendor/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
   	</body>
 

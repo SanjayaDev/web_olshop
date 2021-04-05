@@ -18,3 +18,7 @@ $route["get_admin"] = "Admin/get_admin_listed";
 $route["add_admin"] = "Admin/validate_admin_add";
 $route["admin_detail"] = "Admin/view_admin_detail";
 $route["edit_admin"] = "Admin/process_admin_edit";
+
+// Bank Account
+$route["bank_account"] = "Bank/view_bank_account_management";
+$route["add_bank"] = "Bank/view_bank_account_management";
