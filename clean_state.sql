@@ -112,7 +112,35 @@ CREATE TABLE IF NOT EXISTS `list_bank` (
   `bank_code` varchar(20) NOT NULL,
   `account_number` varchar(50) NOT NULL,
   `holder_name` varchar(50) NOT NULL,
-  `bank_photo` text DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT 1,
   PRIMARY KEY (`bank_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Added date 11 April 2021
+CREATE TABLE IF NOT EXISTS `list_customer_status` (
+  `customer_status_id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_status` varchar(50) NOT NULL,
+  PRIMARY KEY (`customer_status_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `list_customer_status` (`customer_status_id`, `customer_status`) VALUES
+	(1, 'Active'),
+	(2, 'Discontinued'),
+	(3, 'Banned');
+
+CREATE TABLE IF NOT EXISTS `list_customer` (
+  `customer_id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_name` varchar(100) NOT NULL,
+  `customer_phone` varchar(20) NOT NULL,
+  `customer_email` varchar(100) NOT NULL,
+  `customer_password` varchar(100) NOT NULL,
+  `customer_address` text NOT NULL,
+  `province_id` int(11) NOT NULL,
+  `province_name` varchar(150) NOT NULL,
+  `district_id` int(11) NOT NULL,
+  `district_name` varchar(150) NOT NULL,
+  `customer_status_id` int(11) NOT NULL,
+  PRIMARY KEY (`customer_id`),
+  KEY `FK_list_customer_list_customer_status` (`customer_status_id`),
+  CONSTRAINT `FK_list_customer_list_customer_status` FOREIGN KEY (`customer_status_id`) REFERENCES `list_customer_status` (`customer_status_id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

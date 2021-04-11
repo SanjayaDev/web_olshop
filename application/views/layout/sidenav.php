@@ -12,13 +12,13 @@
 					<p class="menu" style="margin-top: -10px;">Apps</p>
 
 					<li>
-						<a href="<?= base_url("dashboard"); ?>" class="items <?= $title == "Dashboard" ? "active" : FALSE; ?>">
+						<a href="#" onclick="navigateTo('dashboard')" class="items <?= $title == "Dashboard" ? "active" : FALSE; ?>">
 							<i class="fa fa-tachometer-alt"></i>
 							<span>Dashoard</span>
 						</a>
 					</li>
 					<li>
-						<a href="<?= base_url("admin_management") ?>" class="items <?= $title == "Admin Management" ? "active" : FALSE; ?>">
+						<a href="#" onclick="navigateTo('admin_management')" class="items <?= $title == "Admin Management" ? "active" : FALSE; ?>">
 							<i class="fa fa-users"></i>
 							<span>Admin Management</span>
 						</a>
@@ -26,14 +26,17 @@
 					<li id="headingTwo">
 						<a href="onclick();" class="submenu-items collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
 							<i class="fas fa-database"></i>
-							<span>Datatabse</span>
+							<span>Database</span>
 							<i class="fas la-angle-right"></i>
 						</a>
 					</li>
 					<div id="collapseTwo" class="collapse submenu" aria-labelledby="headingTwo" data-parent="#sidebar-items">
 						<ul>
 							<li>
-								<a href="<?= base_url("bank_account") ?>">Bank Account</a>
+								<a href="#" onclick="navigateTo('bank_account')">Bank Account</a>
+							</li>
+							<li>
+								<a href="#" onclick="navigateTo('customer')">Customer</a>
 							</li>
 						</ul>
 					</div>

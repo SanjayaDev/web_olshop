@@ -22,3 +22,10 @@ $route["edit_admin"] = "Admin/process_admin_edit";
 // Bank Account
 $route["bank_account"] = "Bank/view_bank_account_management";
 $route["add_bank"] = "Bank/view_bank_account_management";
+$route["get_bank_detail"] = "Bank/ajax_get_bank_detail";
+$route["edit_bank"] = "Bank/validate_bank_edit";
+$route["delete_bank"] = "Bank/process_bank_delete";
+
+// Customer Management
+$route["customer"] = "Customer/view_customer_management";
+$route["get_customer"] = "Customer/get_customer_listed";
