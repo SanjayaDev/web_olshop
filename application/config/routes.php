@@ -26,6 +26,11 @@ $route["get_bank_detail"] = "Bank/ajax_get_bank_detail";
 $route["edit_bank"] = "Bank/validate_bank_edit";
 $route["delete_bank"] = "Bank/process_bank_delete";
 
+// Rajaongkir
+$route["get_district"] = "Rajaongkir/get_district";
+
 // Customer Management
 $route["customer"] = "Customer/view_customer_management";
 $route["get_customer"] = "Customer/get_customer_listed";
+$route["add_customer"] = "Customer/view_add_customer";
+$route["customer_detail/(:any)"] = "Customer/view_customer_detail/$1";

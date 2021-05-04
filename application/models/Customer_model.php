@@ -61,4 +61,56 @@ class Customer_model extends CR_Model
     $query = $this->query_get_customer()->get();
     return $query->num_rows();
   }
+
+  public function get_customer_status_listed()
+  {
+    return $this->db->get("list_customer_status")->result();
+  }
+
+  public function add_customer($input)
+  {
+    $response = create_response();
+    $array_province = explode(":", $input->province_id);
+    $array_district = explode(":", $input->district_id);
+    $values = [
+      "customer_name" => $input->customer_name,
+      "customer_email" => $input->customer_email,
+      "customer_phone" => $input->customer_phone,
+      "customer_address" => $input->customer_address,
+      "province_id" => decrypt_url($array_province[0]),
+      "province_name" => $array_province[1],
+      "district_id" => decrypt_url($array_district[0]),
+      "district_name" => $array_district[1],
+      "customer_status_id" => $input->customer_status_id,
+      "customer_password" => password_hash($input->customer_password, PASSWORD_DEFAULT)
+    ];
+
+    $query = $this->db->insert("list_customer", $values);
+    if ($query) {
+      $response->id = $this->db->insert_id();
+      $response->success = TRUE;
+      $response->message = "Success added new customer!";
+    } else {
+      $response->message = "Query failed!";
+    }
+    return $response;
+  }
+
+  public function get_customer_detail($customer_id)
+  {
+    $response = create_response();
+    $where = ["lc.customer_id" => $customer_id];
+    $query = $this->db->select("*")->from("list_customer lc")
+            ->join("list_customer_status lcs", "lc.customer_status_id = lcs.customer_status_id")
+            ->where($where)->get();
+
+    if ($query->num_rows() == 1) {
+      $response->success = TRUE;
+      $response->data = $query->row();
+    } else {
+      $response->message = "Customer not found!";
+    }
+
+    return $response;
+  }
 }

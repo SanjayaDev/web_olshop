@@ -139,6 +139,7 @@ CREATE TABLE IF NOT EXISTS `list_customer` (
   `province_name` varchar(150) NOT NULL,
   `district_id` int(11) NOT NULL,
   `district_name` varchar(150) NOT NULL,
+  `customer_photo` text DEFAULT NULL,
   `customer_status_id` int(11) NOT NULL,
   PRIMARY KEY (`customer_id`),
   KEY `FK_list_customer_list_customer_status` (`customer_status_id`),

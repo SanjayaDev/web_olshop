@@ -122,6 +122,11 @@ const sendDataMovePage = (link, formId) => {
   })
 }
 
+const back = (link) => {
+  loadRequest();
+  navigateTo(link);
+}
+
 const resetForm = (formId) => document.getElementById(formId).reset();
 
 const resetInput = (inputId) => document.getElementById(inputId).value = "";

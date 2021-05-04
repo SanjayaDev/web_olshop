@@ -453,7 +453,7 @@ $config['csrf_token_name'] = 'X_CSRF_TOKEN';
 $config['csrf_cookie_name'] = 'X_CSRF_COOKIE';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
-$config['csrf_exclude_uris'] = array("get_admin");
+$config['csrf_exclude_uris'] = array("get_admin", "get_district", "get_customer");
 
 /*
 |--------------------------------------------------------------------------

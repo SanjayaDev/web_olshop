@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-class Rajaongkir extends CR_Model
+class Rajaongkir_model extends CR_Model
 {
   public static function get_province()
   {
