@@ -7,7 +7,7 @@
     <div class="col-md-9">
       <div class="card">
         <div class="card-body">
-          <button class="btn btn-success btn-sm mb-2 d-block ml-auto"><i class="fas fa-edit"></i></button>
+          <button class="btn btn-success btn-sm mb-2 d-block ml-auto" onclick="navigateTo('customer_edit/<?= encrypt_url($customer->customer_id) ?>')"><i class="fas fa-edit"></i></button>
           <div class="row">
             <div class="col-md-6">
               <table class="table">

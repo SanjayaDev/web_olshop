@@ -108,8 +108,28 @@ class Customer extends CR_Controller
       $data = [
         "title" => "Customer Detail",
         "content" => "admin/v_customer_detail",
-        "breadcrumb" => $this->draw_breadcrumb("Detail Customer", base_url("view_customer_detail/$customer_id")),
+        "breadcrumb" => $this->draw_breadcrumb("Detail Customer", base_url("customer_detail/$customer_id")),
+        "customer" => $check->data
+      ];
+      $this->load->view("layout/wrapper", $data);
+    } else {
+      $this->session->set_flashdata("message", "<script>sweet('error', 'Failed!', '$check->message')</script>");
+      redirect("customer");
+    }
+  }
+
+  public function view_customer_edit($customer_id)
+  {
+    $this->htaccess("WHITE_LIST", ["System Administrator|100|1"], FALSE); 
+    $id = decrypt_url($customer_id);
+    $check = $this->model->get_customer_detail($id);
+    if ($check->success) {
+      $data = [
+        "title" => "Customer Edit",
+        "content" => "admin/v_customer_edit",
+        "breadcrumb" => $this->draw_breadcrumb("Edit Customer", base_url("view_customer_detail/$customer_id")),
         "list_customer_status" => $this->model->get_customer_status_listed(),
+        "list_province" => $this->rajaongkir->get_province(),
         "customer" => $check->data
       ];
       $this->load->view("layout/wrapper", $data);

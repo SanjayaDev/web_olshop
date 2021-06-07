@@ -38,7 +38,7 @@ class Rajaongkir_model extends CR_Model
     $response = \create_response();
     $curl = curl_init();
     $array = explode(":", $province_id);
-    $id = \decrypt_url($array[0]);
+    $id = $array[0];
 
     curl_setopt_array($curl, array(
       CURLOPT_URL => "https://api.rajaongkir.com/starter/city?province=$id",
@@ -67,7 +67,7 @@ class Rajaongkir_model extends CR_Model
       $response->option = [];
       foreach ($list_district as $item) {
         $data = [
-          "city_id" => \encrypt_url($item["city_id"]),
+          "city_id" => $item["city_id"],
           "city_name" => $item["type"] . " " . $item["city_name"]
         ];
         \array_push($response->option, $data);

@@ -34,3 +34,4 @@ $route["customer"] = "Customer/view_customer_management";
 $route["get_customer"] = "Customer/get_customer_listed";
 $route["add_customer"] = "Customer/view_add_customer";
 $route["customer_detail/(:any)"] = "Customer/view_customer_detail/$1";
+$route["customer_edit/(:any)"] = "Customer/view_customer_edit/$1";
